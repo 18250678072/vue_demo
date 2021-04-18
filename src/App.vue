@@ -14,6 +14,8 @@
         <p>{{ wathcMsg }}</p>
         <hello-world :title="message" @appEvent="appEvent"></hello-world>
         <button @click="test">反转消息</button>
+        <el-button>默认按钮</el-button>
+        <el-button type="primary">主要按钮</el-button>
     </div>
 </template>
 
