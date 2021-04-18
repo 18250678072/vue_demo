@@ -15,7 +15,8 @@
         <hello-world :title="message" @appEvent="appEvent"></hello-world>
         <button @click="test">反转消息</button>
         <el-button>默认按钮</el-button>
-        <el-button type="primary">主要按钮</el-button>
+        <el-button type="primary" @click="changeLanguage">chang language</el-button>
+        <div>{{ $t('common.homepage') }}</div>
     </div>
 </template>
 
@@ -41,6 +42,9 @@ export default {
         },
         appEvent(param) {
             console.log('appEvent:', param);
+        },
+        changeLanguage() {
+            this.$i18n.locale = 'id';
         },
     },
     computed: {
