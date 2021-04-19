@@ -7,16 +7,16 @@
         <ul>
             <li v-for="(item, index) in arr" :key="index">{{ item }}</li>
         </ul>
-        <input v-model="inputMsg" />
+        <input v-model="inputMsg" @input="input" @change="change" />
         <p>{{ newInputMsg }}</p>
         <p>{{ wathcMsg }}</p>
         <p>{{ wathcMsg }}</p>
         <p>{{ wathcMsg }}</p>
-        <hello-world :title="message" @appEvent="appEvent"></hello-world>
-        <button @click="test">反转消息</button>
-        <el-button>默认按钮</el-button>
+        <hello-world :title="message" @appEvent="appEvent" event="click"></hello-world>
+        <button @click="test">test</button>
         <el-button type="primary" @click="changeLanguage">chang language</el-button>
         <div>{{ $t('common.homepage') }}</div>
+        {{ now }}
     </div>
 </template>
 
@@ -38,7 +38,7 @@ export default {
     },
     methods: {
         test() {
-            console.log('test');
+            this.inputMsg = 'test';
         },
         appEvent(param) {
             console.log('appEvent:', param);
@@ -46,11 +46,27 @@ export default {
         changeLanguage() {
             this.$i18n.locale = 'id';
         },
+        input() {
+            console.log('on input');
+        },
+        change() {
+            console.log('on change');
+        },
     },
     computed: {
-        newInputMsg() {
-            console.log('computed');
-            return this.inputMsg + '1';
+        newInputMsg: {
+            get: function() {
+                console.log('computed getter');
+
+                return 'computed getter:' + this.inputMsg;
+            },
+            set: function(params) {
+                console.log('computed setter');
+                this.inputMsg = 'computed setter: ' + params;
+            },
+        },
+        now: function() {
+            return Date.now();
         },
     },
     watch: {

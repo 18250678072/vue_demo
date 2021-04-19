@@ -1,7 +1,7 @@
 <template>
     <div class="hello">
-        <h1>{{ title }}</h1>
-        <button @click="child">emit</button>
+        <h1 class=".title">{{ title }}</h1>
+        <button @[event]="child">emit</button>
     </div>
 </template>
 
@@ -10,6 +10,7 @@ export default {
     name: 'HelloWorld',
     props: {
         title: String,
+        event: String,
     },
     methods: {
         child() {
@@ -18,3 +19,5 @@ export default {
     },
 };
 </script>
+
+<style lang="scss"></style>
