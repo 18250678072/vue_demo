@@ -1,78 +1,59 @@
 <template>
-    <div id="app">
-        {{ message }}
-        <span :title="message">
-            鼠标悬停几秒钟查看此处动态绑定的提示信息！
-        </span>
-        <ul>
-            <li v-for="(item, index) in arr" :key="index">{{ item }}</li>
-        </ul>
-        <input v-model="inputMsg" />
-        <p>{{ newInputMsg }}</p>
-        <p>{{ wathcMsg }}</p>
-        <p>{{ wathcMsg }}</p>
-        <p>{{ wathcMsg }}</p>
-        <hello-world :title="message" @appEvent="appEvent"></hello-world>
-        <button @click="test">反转消息</button>
-        <el-button>默认按钮</el-button>
-        <el-button type="primary" @click="changeLanguage">chang language</el-button>
-        <div>{{ $t('common.homepage') }}</div>
-    </div>
+  <div id="app">
+    <h1>App</h1>
+    <el-button @click="showToast">toast info</el-button>
+    <el-button @click="showDialog">dialog info</el-button>
+
+    <Test></Test>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-
+import Test from "./components/Test";
 export default {
-    name: 'App',
-    components: {
-        HelloWorld,
+  name: "App",
+  components: {
+    Test,
+  },
+  data() {
+    return {};
+  },
+  methods: {
+    showToast() {
+      this.$toast({
+        type: "success",
+        size: "default",
+        message: "成功提示",
+        duration: 3000,
+      });
     },
-    data() {
-        return {
-            message: 'aaa',
-            arr: [1, 2, 3],
-            inputMsg: 'input',
-            wathcMsg: '',
-        };
-    },
-    methods: {
-        test() {
-            console.log('test');
+    showDialog() {
+      this.$dialog({
+        title: "标题",
+        content: "内容",
+        onOk: () => {
+          console.log("Okkkk");
         },
-        appEvent(param) {
-            console.log('appEvent:', param);
+        onCancel: () => {
+          console.log("cancel");
         },
-        changeLanguage() {
-            this.$i18n.locale = 'id';
-        },
+      });
     },
-    computed: {
-        newInputMsg() {
-            console.log('computed');
-            return this.inputMsg + '1';
-        },
-    },
-    watch: {
-        inputMsg: function(val) {
-            console.log('watch');
-            this.wathcMsg = val + 2;
-        },
-    },
-    created() {
-        console.log('created');
-        this.test();
-    },
+  },
+  computed: {},
+  created() {
+    console.log("created");
+  },
 };
 </script>
 
 <style>
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
