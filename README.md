@@ -18,7 +18,7 @@ npm run serve
 npm run build
 ```
 
-- 打包页面空白报错：路径问题 https://www.wangt.cc/2021/04/%e6%89%93%e5%8c%85vue%e6%96%87%e4%bb%b6%e5%90%8e%e9%a1%b5%e9%9d%a2%e7%a9%ba%e7%99%bd%ef%bc%8c%e5%87%ba%e7%8e%b0%e6%8a%a5%e9%94%99/
+-   打包页面空白报错：路径问题 https://www.wangt.cc/2021/04/%e6%89%93%e5%8c%85vue%e6%96%87%e4%bb%b6%e5%90%8e%e9%a1%b5%e9%9d%a2%e7%a9%ba%e7%99%bd%ef%bc%8c%e5%87%ba%e7%8e%b0%e6%8a%a5%e9%94%99/
 
 ### Lints and fixes files
 
@@ -30,9 +30,15 @@ npm run lint
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-事件循环
-单、多线程
-http websocket
-首屏时间
-全局 局部 样式隔离
-二叉树
+### 面试题：
+
+-   组件中的 data 为什么是一个函数：
+    vue 中组件是用来复用的，为了防止 data 复用，将其定义为函数。
+    https://blog.csdn.net/qq_42072086/article/details/108060494
+-   computed 和 watch 区别： https://www.cnblogs.com/wuqilang/p/11241604.html
+    事件循环
+    单、多线程
+    http websocket
+    首屏时间
+    全局 局部 样式隔离
+    二叉树
