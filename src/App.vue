@@ -1,45 +1,20 @@
 <template>
   <div id="app">
-    <h1>App</h1>
-    <el-button @click="showToast">toast info</el-button>
-    <el-button @click="showDialog">dialog info</el-button>
-
-    <Test></Test>
+    <Home></Home>
   </div>
 </template>
 
 <script>
-import Test from "./components/Test";
+import Home from "./components/home";
 export default {
   name: "App",
   components: {
-    Test,
+    Home,
   },
   data() {
     return {};
   },
-  methods: {
-    showToast() {
-      this.$toast({
-        type: "success",
-        size: "default",
-        message: "成功提示",
-        duration: 3000,
-      });
-    },
-    showDialog() {
-      this.$dialog({
-        title: "标题",
-        content: "内容",
-        onOk: () => {
-          console.log("Okkkk");
-        },
-        onCancel: () => {
-          console.log("cancel");
-        },
-      });
-    },
-  },
+  methods: {},
   computed: {},
   created() {
     console.log("created");
@@ -54,6 +29,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
+  width: 100%;
 }
 </style>
