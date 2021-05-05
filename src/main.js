@@ -10,6 +10,8 @@ import VueRouter from "vue-router";
 import Toast from "./components/Toast";
 //引入Dialog组件
 // import Dialog from "./components/Dialog";
+import router from "./router/route";
+import store from "./store";
 
 import {
   Pagination,
@@ -182,9 +184,12 @@ Vue.prototype.$toast = Toast;
 locale.use(lang);
 
 Vue.config.productionTip = false;
+
 Vue.use(Button);
 Vue.use(VueRouter);
 new Vue({
+  store,
   i18n,
+  router,
   render: (h) => h(App),
 }).$mount("#app");

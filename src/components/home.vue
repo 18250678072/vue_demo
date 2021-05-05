@@ -2,16 +2,24 @@
   <div class="root">
     <el-container>
       <el-header>
-        <el-tabs v-model="activeName" @tab-click="handleClick">
-          <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
-          <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
-          <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
-          <el-tab-pane label="定时任务补偿" name="fourth"
-            >定时任务补偿</el-tab-pane
-          >
-        </el-tabs>
+        <el-menu
+          :default-active="activeIndex"
+          class="el-menu-demo"
+          mode="horizontal"
+          @select="handleSelect"
+          :router="true"
+        >
+          <el-menu-item index="/homepage">{{
+            $t("common.homepage")
+          }}</el-menu-item>
+          <el-menu-item index="/homepage/category"
+            >{{ $t("common.category") }}1
+          </el-menu-item>
+        </el-menu>
       </el-header>
-      <el-main>Main</el-main>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
       <el-footer>Footer</el-footer>
     </el-container>
   </div>
@@ -21,13 +29,16 @@
 export default {
   data() {
     return {
-      activeName: "second",
+      activeIndex: "/homepage",
     };
   },
-  method: {
-    handleClick(tab, event) {
-      console.log(tab, event);
+  methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
     },
+  },
+  created() {
+    console.log(this.$router, this.$route);
   },
 };
 </script>
