@@ -36,9 +36,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     vue 中组件是用来复用的，为了防止 data 复用，将其定义为函数。
     https://blog.csdn.net/qq_42072086/article/details/108060494
 -   computed 和 watch 区别： https://www.cnblogs.com/wuqilang/p/11241604.html
-    事件循环
-    单、多线程
-    http websocket
-    首屏时间
-    全局 局部 样式隔离
-    二叉树
+
+-   CDN引入资源：https://blog.csdn.net/sixam/article/details/106058083

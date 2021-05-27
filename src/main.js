@@ -12,7 +12,7 @@ import Toast from "./components/Toast";
 // import Dialog from "./components/Dialog";
 import router from "./router/route";
 import store from "./store";
-
+import {sync} from "vuex-router-sync"
 import {
   Pagination,
   Dialog,
@@ -187,6 +187,7 @@ Vue.config.productionTip = false;
 
 Vue.use(Button);
 Vue.use(VueRouter);
+sync(store,router)
 new Vue({
   store,
   i18n,
