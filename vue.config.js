@@ -1,6 +1,6 @@
 module.exports = {
     publicPath: './',
-
+    lintOnSave: false,
     chainWebpack: config => {
         if (process.env.use_analyzer) {
             // 分析

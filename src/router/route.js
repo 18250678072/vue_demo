@@ -1,41 +1,42 @@
-import Category from "../components/category.vue";
-import Home from "../components/home.vue";
-import App from "../App.vue";
+// import Category from "../components/category.vue";
+// import Home from "../components/home.vue";
+// import App from "../App.vue";
 import VueRouter from "vue-router";
-import HomePage from "../components/homepage.vue";
-import Foo from "../components/foo.vue";
-import Test from "../components/Test.vue";
-import Login from "../components/login.vue";
+// import HomePage from "../components/homepage.vue";
+// import Foo from "../components/foo.vue";
+// import Test from "../components/Test.vue";
+// import Login from "../components/login.vue";
 
 const routes = [
   {
     path: "/",
-    component: App,
+    component: ()=>import( /* webpackChunkName: "App" */  "../App.vue"),
     redirect: "homepage",
+    chunkFilename: '[name].bundle.js',
     children: [
       {
         path: "homepage",
-        component: Home,
+        component: ()=>import( /* webpackChunkName: "Home" */  "../components/home.vue"),
         children: [
           {
             path: "/",
-            component: HomePage,
+            component: ()=>import( /* webpackChunkName: "Homepage" */  "../components/homepage.vue"),
             children: [
               {
                 path: "foo",
                 components: {
-                  default: Foo,
-                  aaa: Test,
+                  default: ()=>import("../components/foo.vue"),
+                  aaa: ()=>import("../components/Test.vue"),
                 },
               },
             ],
           },
-          { path: "category", component: Category },
+          { path: "category", component: ()=>import("../components/category.vue") },
         ],
       },
       {
         path: "login",
-        component: Login,
+        component: ()=>import("../components/login.vue"),
       },
     ],
   },
