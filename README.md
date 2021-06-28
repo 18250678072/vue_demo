@@ -38,4 +38,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 -   computed 和 watch 区别： https://www.cnblogs.com/wuqilang/p/11241604.html
 
 -   CDN引入资源：https://blog.csdn.net/sixam/article/details/106058083
-- 111
+
+- 临时变量：在v-for中需要对每一项的数据处理，在重复使用的时候会造成重复计算和执行，所以需要使用临时变量存储。https://forum.vuejs.org/t/topic/30395/5,category.vue 文件中有实例。
