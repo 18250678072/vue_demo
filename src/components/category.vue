@@ -21,19 +21,21 @@
     </div>
     <!-- provider inject -->
     <div>
-      <inject-itema></inject-itema>
-      <inject-itemb></inject-itemb>
+      <h1>Category</h1>
+      <button @click="changeColor">changeColor</button>
+      <inject-comA></inject-comA>
+      <inject-comB></inject-comB>
     </div>
-    <el-button type="primary" @click="changeColor('green')"
-      >cate change</el-button
-    >
   </div>
 </template>
 
 <script>
 import { FnCom } from "./FnCom";
 import Vue from "vue";
+import InjectComA from "./category/InjectComA.vue";
+import InjectComB from "./category/InjectComB.vue";
 const themeObs = Vue.observable({ color: "blue" });
+
 export default {
   components: {
     FnCom,
@@ -57,6 +59,14 @@ export default {
       console.log("methods");
       return (item + "change").split("").reverse().join("");
     },
+    changeColor() {
+      themeObs.color = "red";
+    },
+  },
+  provide: function () {
+    return {
+      theme: themeObs,
+    };
   },
   created() {},
 };
