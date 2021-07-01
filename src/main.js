@@ -1,96 +1,97 @@
-import Vue from "vue";
-import App from "./App.vue";
-import { Button } from "element-ui";
+import Vue from 'vue';
+import App from './App.vue';
+import { Button } from 'element-ui';
 // import "element-ui/lib/theme-chalk/index.css";
-import lang from "element-ui/lib/locale/lang/en";
-import locale from "element-ui/lib/locale";
-import i18n from "./i18n/"; //引入i8n配置
-import VueRouter from "vue-router";
+import lang from 'element-ui/lib/locale/lang/en';
+import locale from 'element-ui/lib/locale';
+import i18n from './i18n/'; //引入i8n配置
+import VueRouter from 'vue-router';
 //引入Toast组件
-import Toast from "./components/Toast";
+import Toast from './components/Toast';
 //引入Dialog组件
 // import Dialog from "./components/Dialog";
-import router from "./router/route";
-import store from "./store";
-import {sync} from "vuex-router-sync"
+import router from './router/route';
+import store from './store';
+import MyStore from './store/min-vuex';
+import { sync } from 'vuex-router-sync';
 import {
-  Pagination,
-  Dialog,
-  Autocomplete,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
-  Menu,
-  Submenu,
-  MenuItem,
-  MenuItemGroup,
-  Input,
-  InputNumber,
-  Radio,
-  RadioGroup,
-  RadioButton,
-  Checkbox,
-  CheckboxButton,
-  CheckboxGroup,
-  Switch,
-  Select,
-  Option,
-  OptionGroup,
-  ButtonGroup,
-  Table,
-  TableColumn,
-  DatePicker,
-  TimeSelect,
-  TimePicker,
-  Popover,
-  Tooltip,
-  Breadcrumb,
-  BreadcrumbItem,
-  Form,
-  FormItem,
-  Tabs,
-  TabPane,
-  Tag,
-  Tree,
-  Alert,
-  Slider,
-  Icon,
-  Row,
-  Col,
-  Upload,
-  Progress,
-  Spinner,
-  Badge,
-  Card,
-  Rate,
-  Steps,
-  Step,
-  Carousel,
-  CarouselItem,
-  Collapse,
-  CollapseItem,
-  Cascader,
-  ColorPicker,
-  Transfer,
-  Container,
-  Header,
-  Aside,
-  Main,
-  Footer,
-  Timeline,
-  TimelineItem,
-  Link,
-  Divider,
-  Image,
-  Calendar,
-  Backtop,
-  PageHeader,
-  CascaderPanel,
-  Loading,
-  MessageBox,
-  Message,
-  Notification,
-} from "element-ui";
+    Pagination,
+    Dialog,
+    Autocomplete,
+    Dropdown,
+    DropdownMenu,
+    DropdownItem,
+    Menu,
+    Submenu,
+    MenuItem,
+    MenuItemGroup,
+    Input,
+    InputNumber,
+    Radio,
+    RadioGroup,
+    RadioButton,
+    Checkbox,
+    CheckboxButton,
+    CheckboxGroup,
+    Switch,
+    Select,
+    Option,
+    OptionGroup,
+    ButtonGroup,
+    Table,
+    TableColumn,
+    DatePicker,
+    TimeSelect,
+    TimePicker,
+    Popover,
+    Tooltip,
+    Breadcrumb,
+    BreadcrumbItem,
+    Form,
+    FormItem,
+    Tabs,
+    TabPane,
+    Tag,
+    Tree,
+    Alert,
+    Slider,
+    Icon,
+    Row,
+    Col,
+    Upload,
+    Progress,
+    Spinner,
+    Badge,
+    Card,
+    Rate,
+    Steps,
+    Step,
+    Carousel,
+    CarouselItem,
+    Collapse,
+    CollapseItem,
+    Cascader,
+    ColorPicker,
+    Transfer,
+    Container,
+    Header,
+    Aside,
+    Main,
+    Footer,
+    Timeline,
+    TimelineItem,
+    Link,
+    Divider,
+    Image,
+    Calendar,
+    Backtop,
+    PageHeader,
+    CascaderPanel,
+    Loading,
+    MessageBox,
+    Message,
+    Notification,
+} from 'element-ui';
 
 Vue.use(Pagination);
 Vue.use(Dialog);
@@ -184,13 +185,21 @@ Vue.prototype.$toast = Toast;
 locale.use(lang);
 
 Vue.config.productionTip = false;
-
+let myStore = new MyStore({
+    state: { count: 1 },
+    mutations: {
+        increcement(state) {
+            state.count++;
+        },
+    },
+});
+Vue.prototype.$myStore = myStore;
 Vue.use(Button);
 Vue.use(VueRouter);
-sync(store,router)
+sync(store, router);
 new Vue({
-  store,
-  i18n,
-  router,
-  render: (h) => h(App),
-}).$mount("#app");
+    store,
+    i18n,
+    router,
+    render: h => h(App),
+}).$mount('#app');
