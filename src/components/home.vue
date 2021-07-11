@@ -13,6 +13,7 @@
                     <el-menu-item index="/homepage/category">
                         {{ $t('common.category') }}1
                     </el-menu-item>
+                    <el-menu-item index="/homepage/vuexUseDemo">vuex-use-demo</el-menu-item>
                 </el-menu>
             </el-header>
             <el-main>

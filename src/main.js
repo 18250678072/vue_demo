@@ -12,7 +12,7 @@ import Toast from './components/Toast';
 // import Dialog from "./components/Dialog";
 import router from './router/route';
 import store from './store';
-import MyStore from './store/min-vuex';
+// import MyStore from './store/min-vuex';
 import { sync } from 'vuex-router-sync';
 import {
     Pagination,
@@ -185,15 +185,15 @@ Vue.prototype.$toast = Toast;
 locale.use(lang);
 
 Vue.config.productionTip = false;
-let myStore = new MyStore({
-    state: { count: 1 },
-    mutations: {
-        increcement(state) {
-            state.count++;
-        },
-    },
-});
-Vue.prototype.$myStore = myStore;
+// let myStore = new MyStore({
+//     state: { count: 1 },
+//     mutations: {
+//         increcement(state) {
+//             state.count++;
+//         },
+//     },
+// });
+// Vue.prototype.$myStore = myStore;
 Vue.use(Button);
 Vue.use(VueRouter);
 sync(store, router);

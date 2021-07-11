@@ -12,8 +12,8 @@
             <p>{{ selectValue }}}</p>
         </div> -->
 
-        <h2>MyStore:</h2>
-        {{ myCount }}
+        <!-- <h2>MyStore:</h2> -->
+        <!-- {{ myCount }} -->
     </div>
 </template>
 
@@ -21,14 +21,12 @@
 import InjectComA from './category/InjectComA.vue';
 import InjectComB from './category/InjectComB.vue';
 import Vue from 'vue';
-import MySelect from './MySelect';
 const themeObs = Vue.observable({ color: 'blue' });
 
 export default {
     components: {
         InjectComA,
         InjectComB,
-        MySelect,
     },
     data() {
         return {
@@ -47,10 +45,10 @@ export default {
         },
     },
     computed: {
-        myCount() {
-            console.log(this.$myStore);
-            return this.$myStore.state.count;
-        },
+        // myCount() {
+        //     console.log(this.$myStore);
+        //     return this.$myStore.state.count;
+        // },
     },
 };
 </script>

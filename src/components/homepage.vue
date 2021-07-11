@@ -25,8 +25,8 @@
             <router-view></router-view>
             <router-view name="aaa"></router-view>
         </div>
-        myCount：{{ myCount }}
-        <el-button type="" @click="add">add</el-button>
+        <!-- myCount：{{ myCount }} -->
+        <!-- <el-button type="" @click="add">add</el-button> -->
     </div>
 </template>
 
@@ -58,9 +58,9 @@ export default {
         addList() {
             this.$store.commit('addList', 3);
         },
-        add() {
-            this.$myStore.commit('increcement');
-        },
+        // add() {
+        //     this.$store.commit('storeA/increcement');
+        // },
     },
     computed: {
         ...mapGetters(['filterList']),
@@ -68,10 +68,10 @@ export default {
             // 映射 this.count 为 store.state.count
             'count',
         ]),
-        myCount() {
-            console.log(this.$myStore);
-            return this.$myStore.state.count;
-        },
+        // myCount() {
+        //     console.log(this.$myStore);
+        //     return this.$myStore.state.count;
+        // },
     },
     created() {
         this.token = localStorage.getItem('TOKEN');
